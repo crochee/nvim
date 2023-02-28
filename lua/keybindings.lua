@@ -18,51 +18,22 @@ local opt = {
 --   term_mode = "t",
 --   command_mode = "c",
 
-------------------------------------------------------------------
--- magic search
-map("n", "/", "/\\v", {
-  noremap = true,
-  silent = false
-})
-map("v", "/", "/\\v", {
-  noremap = true,
-  silent = false
-})
--- Clean search (highlight)
-map("n", "<leader><space>", ":noh<CR>", opt)
--- visual模式下缩进代码
+------------------------- visual模式下缩进代码-----------
+
 map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
--- 上下移动选中文本
-map("v", "J", ":move '>+1<CR>gv-gv", opt)
-map("v", "K", ":move '<-2<CR>gv-gv", opt)
 
--- 在visual mode 里粘贴不要复制
-map("v", "p", '"_dP', opt)
-
-------------------------------------------------------------------
--- windows 分屏快捷键
-map("n", "<leader>h", ":split<CR>", opt)
-map("n", "<leader>v", ":vsplit<CR>", opt)
-
--- 关闭当前
-map("n", "sc", "<C-w>c", opt)
--- 关闭其他
-map("n", "so", "<C-w>o", opt) -- close others
--- ctrl + hjkl  窗口之间跳转
-map("n", "<C-h>", "<C-w>h", opt)
-map("n", "<C-j>", "<C-w>j", opt)
-map("n", "<C-k>", "<C-w>k", opt)
-map("n", "<C-l>", "<C-w>l", opt)
-
--- 左右比例控制
-map("n", "<C-Left>", ":vertical resize -2<CR>", opt)
-map("n", "<C-Right>", ":vertical resize +2<CR>", opt)
--- 上下比例
-map("n", "<C-Down>", ":resize +2<CR>", opt)
-map("n", "<C-Up>", ":resize -2<CR>", opt)
--- 相等比例
-map("n", "s=", "<C-w>=", opt)
+----------------------- 分屏快捷键 ---------------------
+-- sv 水平分屏sh 垂直分屏sc 关闭当前分屏 (s = close)so 
+map("n", "sv", ":vsp<CR>", opt) --水平分屏
+map("n", "sh", ":sp<CR>", opt) --垂直分屏
+map("n", "sc", "<C-w>c", opt) --关闭当前分屏 (s = close)
+map("n", "so", "<C-w>o", opt) --关闭其他分屏 (o = other)
+-- alt + hjkl 在窗口之间跳转
+map("n", "<A-h>", "<C-w>h", opt)
+map("n", "<A-j>", "<C-w>j", opt)
+map("n", "<A-k>", "<C-w>k", opt)
+map("n", "<A-l>", "<C-w>l", opt)
 
 --------------------------------------------------------------------
 

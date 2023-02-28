@@ -39,14 +39,15 @@ vim.o.smartcase = true
 -- 边输入边搜索
 vim.o.incsearch = true
 -- 命令行高为2，提供足够的显示空间
-vim.o.cmdheight = 1
+vim.o.cmdheight = 2
 -- 当文件被外部程序修改时，自动加载
 vim.o.autoread = true
 vim.bo.autoread = true
 -- 禁止折行
 vim.wo.wrap = false
+vim.o.wrap = false
 -- 光标在行首尾时<Left><Right>可以跳到下一行
-vim.o.whichwrap = "<,>,[,]"
+vim.o.whichwrap = "b,s,<,>,[,],h,l"
 -- 允许隐藏被修改过的buffer
 vim.o.hidden = true
 -- 鼠标支持
@@ -96,17 +97,17 @@ vim.opt.foldenable = true
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
 -- Set clipboard to use win32yank
-vim.cmd [[
-let g:clipboard = {
-  \   'name': 'win32yank-wsl',
-  \   'copy': {
-  \      '+': 'win32yank -i --crlf',
-  \      '*': 'win32yank -i --crlf',
-  \    },
-  \   'paste': {
-  \      '+': 'win32yank -o --lf',
-  \      '*': 'win32yank -o --lf',
-  \   },
-  \   'cache_enabled': 0,
-  \ }
-]]
+--vim.cmd [[
+--let g:clipboard = {
+--  \   'name': 'win32yank-wsl',
+--  \   'copy': {
+--  \      '+': 'win32yank -i --crlf',
+--  \      '*': 'win32yank -i --crlf',
+--  \    },
+--  \   'paste': {
+--  \      '+': 'win32yank -o --lf',
+--  \      '*': 'win32yank -o --lf',
+--  \   },
+--  \   'cache_enabled': 0,
+--  \ }
+--]]
