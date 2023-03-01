@@ -107,8 +107,6 @@ map("n", "<leader>w", ":BufferLineCycleNext<CR>", opt)
 map("n", "<leader>c", ":bd<CR>", opt)
 
 -- floating terminal
-map('n', '<A-d>', '<CMD>lua require("FTerm").toggle()<CR>', opt)
-map('t', '<A-d>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opt)
 
 -- gitsigns
 pluginKeys.mapgit = function(mapbuf)
@@ -136,12 +134,6 @@ pluginKeys.mapgit = function(mapbuf)
   mapbuf('x', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 end
 
-
--- 代码注释插件 Comment
--- see ./lua/plugin-config/comment.lua
--- ctrl + /
-map("n", "<C-_>", "gcc", { noremap = false })
-map("v", "<C-_>", "gc", { noremap = false })
 
 -- hop for easy motion
 map('n', 'f',

@@ -35,12 +35,8 @@ mason.setup({
 -- { key: lsp_name, value: lsp_config }
 local servers = {
   gopls = require("lsp.gopls"),
-  pylsp = require("lsp.pylsp"),
   rust_analyzer = require("lsp.rust"),
   lua_ls = require("lsp.lua"),
-  bashls = require("lsp.bashls"),
-  vimls = require("lsp.vimls"),
-  jsonls = require("lsp.jsonls"),
 }
 
 local ensure_installed = { type = "list" }
