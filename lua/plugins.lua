@@ -12,6 +12,7 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+vim.notify(lazypath)
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
