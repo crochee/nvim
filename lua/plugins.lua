@@ -7,7 +7,7 @@ if not vim.loop.fs_stat(lazypath) then
     "git",
     "clone",
     "--filter=blob:none",
-    "git@github.com:folke/lazy.nvim.git",
+    "https://github.com/folke/lazy.nvim.git",
     "--branch=stable", -- latest stable release
     lazypath,
   })
@@ -24,21 +24,25 @@ require("lazy").setup({
   'nvim-lua/plenary.nvim',
   'kyazdani42/nvim-web-devicons',
 
-  -- Colorscheme
+  -------------------- Colorscheme ---------------------
+  -- neovim〉= 0.5的黑暗和光明主题基于Atom One Dark & Atom One Light主题，用lua编写，并使用TreeSitter语法高亮显示
   'navarasu/onedark.nvim',
+  -- 背景主题颜色 Everforest是一种基于绿色的配色方案;为了保护开发人员的眼睛，它被设计得温暖而柔软。
   'sainnhe/everforest',
   'ellisonleao/gruvbox.nvim',
 
-  -- UI
+  ------------------- UI ------------------------------
+  -- 目录树 
   require('plugin-config.nvim-tree'),
   require('plugin-config.bufferline'),
   require('plugin-config.lualine'),
   "numToStr/FTerm.nvim",
   'kevinhwang91/nvim-bqf',
 
-  -- Edit
+  ------------ Edit -------------------
   require('plugin-config.nvim-autopairs'),
   require('plugin-config.comment'),
+  -- 在编辑时去除尾随空格
   require('plugin-config.spaceless'),
   'hrsh7th/vim-vsnip',
   'rafamadriz/friendly-snippets',
@@ -53,7 +57,6 @@ require("lazy").setup({
 
   -- treesitter
   require('plugin-config.nvim-treesitter'),
-  -- use("p00f/nvim-ts-rainbow")
 
   -- LSP
   { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" },
@@ -63,6 +66,10 @@ require("lazy").setup({
   -- Autocomplete
   require('plugin-config.nvim-cmp'),
   'hrsh7th/cmp-vsnip',
+
+  -- floating terminal
+  require('plugin-config.toggleterm'),
+
 }, opts)
 
 -- 每次保存 plugins.lua 自动安装插件

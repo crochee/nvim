@@ -99,7 +99,7 @@ pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   }
 }
 
--- bufferline
+----------------------------------- bufferline --------------
 -- Buffer nav
 map("n", "<leader>q", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<leader>w", ":BufferLineCycleNext<CR>", opt)
@@ -108,7 +108,7 @@ map("n", "<leader>c", ":bd<CR>", opt)
 
 -- floating terminal
 
--- gitsigns
+------------------------- gitsigns ---------------------------
 pluginKeys.mapgit = function(mapbuf)
   -- Navigation
   mapbuf('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
