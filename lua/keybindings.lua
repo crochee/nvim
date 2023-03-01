@@ -24,7 +24,7 @@ map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 
 ----------------------- 分屏快捷键 ---------------------
--- sv 水平分屏sh 垂直分屏sc 关闭当前分屏 (s = close)so 
+-- sv 水平分屏sh 垂直分屏sc 关闭当前分屏 (s = close)so
 map("n", "sv", ":vsp<CR>", opt) --水平分屏
 map("n", "sh", ":sp<CR>", opt) --垂直分屏
 map("n", "sc", "<C-w>c", opt) --关闭当前分屏 (s = close)
@@ -40,8 +40,8 @@ map("n", "<A-l>", "<C-w>l", opt)
 -- 插件快捷键
 local pluginKeys = {}
 
--- nvimTree
-map('n', '<F3>', ':NvimTreeToggle<CR>', opt)
+-------------------------- nvimTree 目录树插件 ---------------------
+map('n', '<leader>ll', ':NvimTreeToggle<CR>', opt)
 -- 列表快捷键
 pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   {
@@ -150,7 +150,7 @@ map('n', 'T',
   , {})
 map('n', '<leader>d', ':HopChar1<CR>', opt)
 
--- Telescope
+------------------------------- Telescope  文件搜索 -------------------------
 map("n", "<leader>e", ":Telescope find_files<CR>", opt)
 map("n", "<leader>f", ":Telescope live_grep<CR>", opt)
 map("n", "<leader>b", ":Telescope buffers<CR>", opt)
@@ -175,7 +175,7 @@ pluginKeys.telescopeList = {
   }
 }
 
--- lsp
+---------------------- lsp 编程语言设置相关（代码跳转提示等）-------------------
 -- lsp 回调函数快捷键设置
 pluginKeys.maplsp = function(mapbuf)
   -- rename
@@ -202,7 +202,7 @@ pluginKeys.maplsp = function(mapbuf)
   -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
 end
 
--- nvim-cmp 自动补全
+-------------------- nvim-cmp 自动补全 --------------------------
 pluginKeys.cmp = function(cmp)
   return {
     -- 上一个

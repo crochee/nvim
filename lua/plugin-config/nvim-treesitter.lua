@@ -8,7 +8,7 @@ function M.config()
   require 'nvim-treesitter.configs'.setup {
     -- 安装 language parser
     -- :TSInstallInfo 命令查看支持的语言
-    ensure_installed = { "vim", "lua", "typescript", "python", "go", "gomod", "gowork", "bash", "yaml", "make" },
+    ensure_installed = { "vim", "lua", "go", "gomod", "gowork", "bash", "yaml", "make" },
     -- 启用代码高亮功能
     highlight = {
       enable = true,
