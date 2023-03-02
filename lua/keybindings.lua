@@ -159,10 +159,8 @@ map("n", "<leader>s", ":Telescope lsp_document_symbols<CR>", opt)
 pluginKeys.telescopeList = {
   i = {
     -- 上下移动
-    ["<C-j>"] = "move_selection_next",
-    ["<C-k>"] = "move_selection_previous",
-    ["<C-n>"] = "move_selection_next",
-    ["<C-p>"] = "move_selection_previous",
+    ["<C-Down>"] = "move_selection_next",
+    ["<C-Up>"] = "move_selection_previous",
     -- 历史记录
     ["<Down>"] = "cycle_history_next",
     ["<Up>"] = "cycle_history_prev",
@@ -206,9 +204,9 @@ end
 pluginKeys.cmp = function(cmp)
   return {
     -- 上一个
-    ['<C-k>'] = cmp.mapping.select_prev_item(),
+    ['<leader><Up>'] = cmp.mapping.select_prev_item(),
     -- 下一个
-    ['<C-j>'] = cmp.mapping.select_next_item(),
+    ['<leader><Down>'] = cmp.mapping.select_next_item(),
     -- 出现补全
     ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     -- 取消
@@ -229,18 +227,19 @@ pluginKeys.cmp = function(cmp)
   }
 end
 
+--------------------- floating terminal -----------------------------
 pluginKeys.toggleterm = function(mapbuf)
-	mapbuf('t', '<C-g>', '<C-\\><C-n>')
-	mapbuf('n', '<leader>tt', ':ToggleTerm direction=tab<cr>')
-	mapbuf('n', '<leader>tn', new_toggle())
-	mapbuf('n', '<leader>tf', ':ToggleTerm direction=float<cr>')
-	mapbuf('n', '<leader>th', ':ToggleTerm direction=horizontal<cr>')
-	mapbuf('n', '<leader>tv', ':ToggleTerm direction=vertical<cr>')
+  mapbuf('t', '<C-g>', '<C-\\><C-n>')
+  mapbuf('n', '<leader>tt', ':ToggleTerm direction=tab<cr>')
+  mapbuf('n', '<leader>tn', new_toggle())
+  mapbuf('n', '<leader>tf', ':ToggleTerm direction=float<cr>')
+  mapbuf('n', '<leader>th', ':ToggleTerm direction=horizontal<cr>')
+  mapbuf('n', '<leader>tv', ':ToggleTerm direction=vertical<cr>')
 end
 
 function new_toggle()
-  	local terminal = require('toggleterm.terminal')
-	terminal.Terminal:new():toggle() 
+  local terminal = require('toggleterm.terminal')
+  terminal.Terminal:new():toggle()
 end
 
 return pluginKeys
