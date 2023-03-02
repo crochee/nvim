@@ -18,7 +18,7 @@ local opts = require("config")
 
 require("lazy").setup({
   -- Lazy can manage itself
-  'folke/lazy.nvim',
+  {'folke/lazy.nvim',url = "https://github.com/folke/lazy.nvim.git"},
 
   -- Dependency required by other plugins
   'nvim-lua/plenary.nvim',
