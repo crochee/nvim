@@ -229,4 +229,18 @@ pluginKeys.cmp = function(cmp)
   }
 end
 
+pluginKeys.toggleterm = function(mapbuf)
+	mapbuf('t', '<C-g>', '<C-\\><C-n>')
+	mapbuf('n', '<leader>tt', ':ToggleTerm direction=tab<cr>')
+	mapbuf('n', '<leader>tn', new_toggle())
+	mapbuf('n', '<leader>tf', ':ToggleTerm direction=float<cr>')
+	mapbuf('n', '<leader>th', ':ToggleTerm direction=horizontal<cr>')
+	mapbuf('n', '<leader>tv', ':ToggleTerm direction=vertical<cr>')
+end
+
+function new_toggle()
+  	local terminal = require('toggleterm.terminal')
+	terminal.Terminal:new():toggle() 
+end
+
 return pluginKeys
