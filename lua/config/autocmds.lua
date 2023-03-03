@@ -1,31 +1,44 @@
 local api = vim.api
 
+local function augroup(name)
+  return api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+end
+
+-- Check if we need to reload the file when it changed
+api.nvim_create_autocmd({
+  "FocusGained",
+  "TermClose",
+  "TermLeave",
+}, {
+  group = augroup("checktime"),
+  command = "checktime",
+})
+
 -- Highlight on yank
-local yankGrp = api.nvim_create_augroup("YankHighlight", { clear = true })
 api.nvim_create_autocmd("TextYankPost", {
   command = "silent! lua vim.highlight.on_yank()",
-  group = yankGrp,
+  group = augroup("highlight_yank"),
 })
 
 -- show cursor line only in active window
-local cursorGrp = api.nvim_create_augroup("CursorLine", { clear = true })
 api.nvim_create_autocmd(
   { "InsertLeave", "WinEnter" },
-  { pattern = "*", command = "set cursorline", group = cursorGrp }
+  { pattern = "*", command = "set cursorline", group = augroup("cursor_line") }
 )
 api.nvim_create_autocmd(
   { "InsertEnter", "WinLeave" },
-  { pattern = "*", command = "set nocursorline", group = cursorGrp }
+  { pattern = "*", command = "set nocursorline", group = augroup("cursor_line") }
 )
 
 -- go to last loc when opening a buffer
 api.nvim_create_autocmd(
   "BufReadPost",
-  { command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]] }
+  {
+    command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]],
+    group = augroup("last_loc")
+  }
 )
 
--- Check if we need to reload the file when it changed
-api.nvim_create_autocmd("FocusGained", { command = [[:checktime]] })
 
 -- windows to close with "q"
 api.nvim_create_autocmd(

@@ -50,7 +50,7 @@ function M.config()
       end
 
       -- 绑定快捷键
-      require("keybindings").mapgit(map)
+      require("config.keymaps").mapgit(map)
     end }
 end
 

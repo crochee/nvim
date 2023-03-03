@@ -13,11 +13,12 @@ local opt = {
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
+--   visual_mode = "v", --v
+--   visual_block_mode = "x", -- C_v
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- 上下左右(kjhl)
 ------------------------- visual模式下缩进代码-----------
 
 map("v", "<", "<gv", opt)
@@ -26,14 +27,14 @@ map("v", ">", ">gv", opt)
 ----------------------- 分屏快捷键 ---------------------
 -- sv 水平分屏sh 垂直分屏sc 关闭当前分屏 (s = close)so
 map("n", "sv", ":vsp<CR>", opt) --水平分屏
-map("n", "sh", ":sp<CR>", opt) --垂直分屏
-map("n", "sc", "<C-w>c", opt) --关闭当前分屏 (s = close)
-map("n", "so", "<C-w>o", opt) --关闭其他分屏 (o = other)
+map("n", "sh", ":sp<CR>", opt)  --垂直分屏
+map("n", "sc", "<C-w>c", opt)   --关闭当前分屏 (s = close)
+map("n", "so", "<C-w>o", opt)   --关闭其他分屏 (o = other)
 -- alt + hjkl 在窗口之间跳转
-map("n", "<A-h>", "<C-w>h", opt)
-map("n", "<A-j>", "<C-w>j", opt)
-map("n", "<A-k>", "<C-w>k", opt)
-map("n", "<A-l>", "<C-w>l", opt)
+map("n", "<C-h>", "<C-w>h", opt)
+map("n", "<C-j>", "<C-w>j", opt)
+map("n", "<C-k>", "<C-w>k", opt)
+map("n", "<C-l>", "<C-w>l", opt)
 
 --------------------------------------------------------------------
 
@@ -159,17 +160,17 @@ map("n", "<leader>s", ":Telescope lsp_document_symbols<CR>", opt)
 pluginKeys.telescopeList = {
   i = {
     -- 上下移动
-    ["<C-Down>"] = "move_selection_next",
-    ["<C-Up>"] = "move_selection_previous",
+        ["<C-Down>"] = "move_selection_next",
+        ["<C-Up>"] = "move_selection_previous",
     -- 历史记录
-    ["<Down>"] = "cycle_history_next",
-    ["<Up>"] = "cycle_history_prev",
+        ["<Down>"] = "cycle_history_next",
+        ["<Up>"] = "cycle_history_prev",
     -- 关闭窗口
     -- ["<esc>"] = actions.close,
-    ["<C-c>"] = "close",
+        ["<C-c>"] = "close",
     -- 预览窗口上下滚动
-    ["<C-u>"] = "preview_scrolling_up",
-    ["<C-d>"] = "preview_scrolling_down"
+        ["<C-u>"] = "preview_scrolling_up",
+        ["<C-d>"] = "preview_scrolling_down"
   }
 }
 
@@ -204,26 +205,26 @@ end
 pluginKeys.cmp = function(cmp)
   return {
     -- 上一个
-    ['<leader><Up>'] = cmp.mapping.select_prev_item(),
+        ['<leader><Up>'] = cmp.mapping.select_prev_item(),
     -- 下一个
-    ['<leader><Down>'] = cmp.mapping.select_next_item(),
+        ['<leader><Down>'] = cmp.mapping.select_next_item(),
     -- 出现补全
-    ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+        ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     -- 取消
-    ['<A-,>'] = cmp.mapping({
+        ['<A-,>'] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
     -- 确认
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ['<CR>'] = cmp.mapping.confirm({
+        ['<CR>'] = cmp.mapping.confirm({
       select = true,
       behavior = cmp.ConfirmBehavior.Replace
     }),
     -- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-    ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs( -4), { 'i', 'c' }),
-    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+        ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+        ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
   }
 end
 

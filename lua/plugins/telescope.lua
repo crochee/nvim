@@ -20,7 +20,7 @@ function M.config()
       -- vertical , center , cursor
       layout_strategy = "horizontal",
       -- 窗口内快捷键
-      mappings = require("keybindings").telescopeList,
+      mappings = require("config.keymaps").telescopeList,
     },
     pickers = {
       find_files = {

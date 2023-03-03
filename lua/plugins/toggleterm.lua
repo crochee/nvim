@@ -8,7 +8,6 @@ function M.config()
     return
   end
 
-  local mapkey = require('keybindings').toggleterm
 
   toggleterm.setup({
     -- size can be a number or function which is passed the current terminal
