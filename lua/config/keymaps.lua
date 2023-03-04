@@ -232,7 +232,7 @@ end
 
 --------------------- floating terminal -----------------------------
 -- toggleTerm & Lazygit
-map('n', '<leader>tt', '<CMD>exe v:count1 . "ToggleTerm"<CR>')
+-- map('n', '<leader>tt', "<C-\\\\><C-n>", opt)
 map('n', '<leader>gg', '<CMD>lua _LAZYGIT_TOGGLE()<CR>')
 
 return pluginKeys

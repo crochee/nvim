@@ -11,6 +11,7 @@ function M.config()
 
 
   toggleterm.setup({
+    open_mapping = "<leader>tt",
     hide_numbers = true,
     shade_filetypes = {},
     shade_terminals = true,
@@ -48,7 +49,6 @@ function M.config()
     },
     -- function to run on opening the terminal
     on_open = function(term)
-      vim.cmd("startinsert!")
       vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
     end,
   })
