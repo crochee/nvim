@@ -8,6 +8,6 @@ vim.cmd [[
   " set background=light
 ]]
 
--- require("colorscheme.gruvbox")
-require("colorscheme.everforest")
+require("colorscheme.gruvbox")
+-- require("colorscheme.everforest")
 -- require("colorscheme.onedark")

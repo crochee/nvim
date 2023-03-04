@@ -143,12 +143,14 @@ map('n', 'f',
 map('n', 'F',
   "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>"
   , {})
-map('n', 't',
-  "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>"
+map('v', 'f',
+  "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>"
   , {})
-map('n', 'T',
-  "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>"
+map('v', 'F',
+  "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>"
   , {})
+map('n', 't', "<cmd>HopWord<cr>", {})
+map('n', 'T', "<cmd>HopWord<cr>", {})
 map('n', '<leader>d', ':HopChar1<CR>', opt)
 
 ------------------------------- Telescope  文件搜索 -------------------------
@@ -229,18 +231,8 @@ pluginKeys.cmp = function(cmp)
 end
 
 --------------------- floating terminal -----------------------------
-pluginKeys.toggleterm = function(mapbuf)
-  mapbuf('t', '<C-g>', '<C-\\><C-n>')
-  mapbuf('n', '<leader>tt', ':ToggleTerm direction=tab<cr>')
-  mapbuf('n', '<leader>tn', new_toggle())
-  mapbuf('n', '<leader>tf', ':ToggleTerm direction=float<cr>')
-  mapbuf('n', '<leader>th', ':ToggleTerm direction=horizontal<cr>')
-  mapbuf('n', '<leader>tv', ':ToggleTerm direction=vertical<cr>')
-end
-
-function new_toggle()
-  local terminal = require('toggleterm.terminal')
-  terminal.Terminal:new():toggle()
-end
+-- toggleTerm & Lazygit
+map('n', '<leader>tt', '<CMD>exe v:count1 . "ToggleTerm"<CR>')
+map('n', '<leader>gg', '<CMD>lua _LAZYGIT_TOGGLE()<CR>')
 
 return pluginKeys
