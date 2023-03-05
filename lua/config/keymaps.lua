@@ -158,6 +158,7 @@ map("n", "<leader>e", ":Telescope find_files<CR>", opt)
 map("n", "<leader>f", ":Telescope live_grep<CR>", opt)
 map("n", "<leader>b", ":Telescope buffers<CR>", opt)
 map("n", "<leader>s", ":Telescope lsp_document_symbols<CR>", opt)
+map("n", "<leader>fj", ":Telescope jumplist<CR>", opt)
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {
   i = {
@@ -232,7 +233,6 @@ end
 
 --------------------- floating terminal -----------------------------
 -- toggleTerm & Lazygit
--- map('n', '<leader>tt', "<C-\\\\><C-n>", opt)
 map('n', '<leader>gg', '<CMD>lua _LAZYGIT_TOGGLE()<CR>')
 
 return pluginKeys
