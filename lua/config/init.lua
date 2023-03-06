@@ -25,7 +25,10 @@ require("lazy").setup({
   -- Dependency required by other plugins
   'nvim-lua/plenary.nvim',
   'kyazdani42/nvim-web-devicons',
-
+  -- Colorscheme
+  'navarasu/onedark.nvim',
+  --'sainnhe/everforest',
+  --'ellisonleao/gruvbox.nvim',
   -- Edit
   'rafamadriz/friendly-snippets',
   'machakann/vim-sandwich',
