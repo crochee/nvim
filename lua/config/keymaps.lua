@@ -208,9 +208,9 @@ end
 pluginKeys.cmp = function(cmp)
   return {
     -- 上一个
-        ['<leader><Up>'] = cmp.mapping.select_prev_item(),
+        ['<leader>kk'] = cmp.mapping.select_prev_item(),
     -- 下一个
-        ['<leader><Down>'] = cmp.mapping.select_next_item(),
+        ['<leader>jj'] = cmp.mapping.select_next_item(),
     -- 出现补全
         ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     -- 取消
