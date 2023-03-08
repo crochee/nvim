@@ -10,7 +10,8 @@ local M = {
     'jayp0521/mason-nvim-dap.nvim',
     'mfussenegger/nvim-dap',
     "theHamsta/nvim-dap-virtual-text",
-    "rcarriga/nvim-dap-ui"
+    "rcarriga/nvim-dap-ui",
+    'leoluz/nvim-dap-go'
   }
 }
 

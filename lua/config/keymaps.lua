@@ -122,7 +122,7 @@ map('v', 'F',
   , {})
 map('n', 't', "<cmd>HopWord<cr>", {})
 map('n', 'T', "<cmd>HopWord<cr>", {})
-map('n', '<leader>d', ':HopChar1<CR>', opt)
+map('n', '<leader>df', ':HopChar1<CR>', opt)
 
 ------------------------------- Telescope  文件搜索 -------------------------
 map("n", "<leader>e", ":Telescope find_files<CR>", opt)
