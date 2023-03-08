@@ -27,9 +27,9 @@ map("v", ">", ">gv", opt)
 ----------------------- 分屏快捷键 ---------------------
 -- sv 水平分屏sh 垂直分屏sc 关闭当前分屏 (s = close)so
 map("n", "sv", ":vsp<CR>", opt) --水平分屏
-map("n", "sh", ":sp<CR>", opt)  --垂直分屏
-map("n", "sc", "<C-w>c", opt)   --关闭当前分屏 (s = close)
-map("n", "so", "<C-w>o", opt)   --关闭其他分屏 (o = other)
+map("n", "sh", ":sp<CR>", opt) --垂直分屏
+map("n", "sc", "<C-w>c", opt) --关闭当前分屏 (s = close)
+map("n", "so", "<C-w>o", opt) --关闭其他分屏 (o = other)
 -- alt + hjkl 在窗口之间跳转
 map("n", "<C-h>", "<C-w>h", opt)
 map("n", "<C-j>", "<C-w>j", opt)
@@ -107,36 +107,7 @@ map("n", "<leader>w", ":BufferLineCycleNext<CR>", opt)
 -- Close buffer
 map("n", "<leader>c", ":bd<CR>", opt)
 
--- floating terminal
-
-------------------------- gitsigns ---------------------------
-pluginKeys.mapgit = function(mapbuf)
-  -- Navigation
-  mapbuf('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
-  mapbuf('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
-
-  -- Actions
-  mapbuf('n', '<leader>hs', ':Gitsigns stage_hunk<CR>')
-  mapbuf('v', '<leader>hs', ':Gitsigns stage_hunk<CR>')
-  mapbuf('n', '<leader>hr', ':Gitsigns reset_hunk<CR>')
-  mapbuf('v', '<leader>hr', ':Gitsigns reset_hunk<CR>')
-  mapbuf('n', '<leader>hS', '<cmd>Gitsigns stage_buffer<CR>')
-  mapbuf('n', '<leader>hu', '<cmd>Gitsigns undo_stage_hunk<CR>')
-  mapbuf('n', '<leader>hR', '<cmd>Gitsigns reset_buffer<CR>')
-  mapbuf('n', '<leader>hp', '<cmd>Gitsigns preview_hunk<CR>')
-  mapbuf('n', '<leader>hb', '<cmd>lua require"gitsigns".blame_line{full=true}<CR>')
-  mapbuf('n', '<leader>tb', '<cmd>Gitsigns toggle_current_line_blame<CR>')
-  mapbuf('n', '<leader>hd', '<cmd>Gitsigns diffthis<CR>')
-  mapbuf('n', '<leader>hD', '<cmd>lua require"gitsigns".diffthis("~")<CR>')
-  mapbuf('n', '<leader>td', '<cmd>gitsigns toggle_deleted<cr>')
-
-  -- Text object
-  mapbuf('o', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-  mapbuf('x', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-end
-
-
--- hop for easy motion
+--------------------------------- hop for easy motion --------------
 map('n', 'f',
   "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>"
   , {})
@@ -158,22 +129,21 @@ map("n", "<leader>e", ":Telescope find_files<CR>", opt)
 map("n", "<leader>f", ":Telescope live_grep<CR>", opt)
 map("n", "<leader>b", ":Telescope buffers<CR>", opt)
 map("n", "<leader>s", ":Telescope lsp_document_symbols<CR>", opt)
-map("n", "<leader>fj", ":Telescope jumplist<CR>", opt)
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {
   i = {
     -- 上下移动
-        ["<C-Down>"] = "move_selection_next",
-        ["<C-Up>"] = "move_selection_previous",
+    ["<C-Down>"] = "move_selection_next",
+    ["<C-Up>"] = "move_selection_previous",
     -- 历史记录
-        ["<Down>"] = "cycle_history_next",
-        ["<Up>"] = "cycle_history_prev",
+    ["<Down>"] = "cycle_history_next",
+    ["<Up>"] = "cycle_history_prev",
     -- 关闭窗口
     -- ["<esc>"] = actions.close,
-        ["<C-c>"] = "close",
+    ["<C-c>"] = "close",
     -- 预览窗口上下滚动
-        ["<C-u>"] = "preview_scrolling_up",
-        ["<C-d>"] = "preview_scrolling_down"
+    ["<C-u>"] = "preview_scrolling_up",
+    ["<C-d>"] = "preview_scrolling_down"
   }
 }
 
@@ -208,31 +178,58 @@ end
 pluginKeys.cmp = function(cmp)
   return {
     -- 上一个
-        ['<leader>kk'] = cmp.mapping.select_prev_item(),
+    ['<leader>kk'] = cmp.mapping.select_prev_item(),
     -- 下一个
-        ['<leader>jj'] = cmp.mapping.select_next_item(),
+    ['<leader>jj'] = cmp.mapping.select_next_item(),
     -- 出现补全
-        ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     -- 取消
-        ['<A-,>'] = cmp.mapping({
+    ['<A-,>'] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
     -- 确认
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-        ['<CR>'] = cmp.mapping.confirm({
+    ['<CR>'] = cmp.mapping.confirm({
       select = true,
       behavior = cmp.ConfirmBehavior.Replace
     }),
     -- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-        ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-        ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs( -4), { 'i', 'c' }),
+    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
   }
 end
 
 --------------------- floating terminal -----------------------------
 -- toggleTerm & Lazygit
 map('n', '<leader>gg', '<CMD>lua _LAZYGIT_TOGGLE()<CR>')
+
+----------------------dap debug ------------------------------------
+-- Begin
+map("n", "<leader>dd", ":lua require('dap').continue()<CR>", opt)
+-- Stop
+map(
+  "n",
+  "<leader>de",
+  ":lua require'dap'.close()<CR>"
+  .. ":lua require'dap'.terminate()<CR>"
+  .. ":lua require'dap.repl'.close()<CR>"
+  .. ":lua require'dapui'.close()<CR>"
+  .. ":lua require('dap').clear_breakpoints()<CR>"
+  .. "<C-w>o<CR>",
+  opt
+)
+-- Continue
+map("n", "<leader>dc", ":lua require'dap'.continue()<CR>", opt)
+-- Set BreakPoint
+map("n", "<leader>dt", ":lua require('dap').toggle_breakpoint()<CR>", opt)
+map("n", "<leader>dT", ":lua require('dap').clear_breakpoints()<CR>", opt)
+--  stepOver, stepOut, stepInto
+map("n", "<leader>dj", ":lua require'dap'.step_over()<CR>", opt)
+map("n", "<leader>dk", ":lua require'dap'.step_out()<CR>", opt)
+map("n", "<leader>dl", ":lua require'dap'.step_into()<CR>", opt)
+-- Pop-ups
+map("n", "<leader>dh", ":lua require'dapui'.eval()<CR>", opt)
 
 return pluginKeys

@@ -21,7 +21,7 @@ local opts = require("config.lazynvim")
 
 require("lazy").setup({
   -- Lazy can manage itself
-  { 'folke/lazy.nvim',         url = "https://github.com/folke/lazy.nvim.git" },
+  { 'folke/lazy.nvim', url = "https://github.com/folke/lazy.nvim.git" },
   -- Colorscheme
   'navarasu/onedark.nvim',
   --'sainnhe/everforest',
@@ -29,11 +29,6 @@ require("lazy").setup({
   -- Edit
   'rafamadriz/friendly-snippets',
   'machakann/vim-sandwich',
-
-  -- lsp
-  { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" },
-  { 'neovim/nvim-lspconfig' },
-  { 'nanotee/sqls.nvim' },
 
   -- import/override with your plugins
   { import = "plugins" },
