@@ -3,6 +3,7 @@ local M = {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nanotee/sqls.nvim',
+    'b0o/schemastore.nvim',
     ------ lsp
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
@@ -11,7 +12,10 @@ local M = {
     'mfussenegger/nvim-dap',
     "theHamsta/nvim-dap-virtual-text",
     "rcarriga/nvim-dap-ui",
-    'leoluz/nvim-dap-go'
+    'leoluz/nvim-dap-go',
+    'theHamsta/nvim-dap-virtual-text',
+    "rcarriga/nvim-dap-ui",
+
   }
 }
 

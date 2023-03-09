@@ -29,10 +29,12 @@ function M.config()
         -- theme = "dropdown", -- 可选参数： dropdown, cursor, ivy
       }
     },
-    extensions = {},
+    extensions = {
+    },
   })
 
   pcall(telescope.load_extension, "env")
+  pcall(telescope.load_extension, "dap")
 end
 
 return M
