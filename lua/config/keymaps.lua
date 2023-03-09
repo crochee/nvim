@@ -115,7 +115,7 @@ map("n", "<leader>c", ":bd<CR>", opt)
 --   "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>"
 --   , {})
 -- map('n', 't', "<cmd>HopWord<cr>", {})
-map('n', '<leader>fh', ':HopChar1<CR>', opt)
+map('n', '<leader>fw', ':HopChar1<CR>', opt)
 
 ------------------------------- Telescope  文件搜索 -------------------------
 map("n", "<leader>e", ":Telescope find_files<CR>", opt)
