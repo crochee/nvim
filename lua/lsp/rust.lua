@@ -6,17 +6,21 @@ local opts = {
   root_dir = util.root_pattern("Cargo.toml", "rust-project.json"),
   settings = {
         ["rust-analyzer"] = {
-      assist = {
-        importGranularity = "module",
-        importPrefix = "self",
+      imports = {
+        granularity = {
+          group = "module",
+        },
+        prefix = "self",
       },
       cargo = {
-        loadOutDirsFromCheck = true
+        buildScripts = {
+          enable = true,
+        },
       },
       procMacro = {
         enable = true
       },
-    }
+    },
   },
   on_attach = require('lsp.utils').on_attach
 }
