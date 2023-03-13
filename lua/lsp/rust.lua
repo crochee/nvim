@@ -17,9 +17,6 @@ local opts = {
           enable = true,
         },
       },
-      procMacro = {
-        enable = true
-      },
     },
   },
   on_attach = require('lsp.utils').on_attach

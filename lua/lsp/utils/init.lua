@@ -10,7 +10,6 @@ function M.on_attach(client, bufnr)
 
   -- 绑定快捷键
   require("config.keymaps").maplsp(buf_set_keymap)
-  require 'completion'.on_attach(client)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   -- 保存时自动格式化
