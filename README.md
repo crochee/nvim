@@ -11,3 +11,9 @@ alias vim='nvim'
 alias vi='nvim'
 alias v='nvim'
 ```
+## nvim插件安装
+在$HOME/.config下克隆本仓库
+```shell
+git clone git@github.com:crochee/nvim.git
+```
+nvim打开即可
